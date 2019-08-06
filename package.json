@@ -1,17 +1,17 @@
 {
-  "name": "wprig",
+  "name": "beck-and-galo",
   "version": "2.0.0",
-  "description": "A progressive theme development rig for WordPress.",
-  "author": "The WP Rig Contributors",
-  "license": "GPL-3.0",
+  "description": "An AMP compatible WordPress theme built on top of WP Rig, using an existing AMP design template.",
+  "author": "Felix Arntz",
+  "license": "GPL-2.0",
   "main": "index.php",
-  "homepage": "https://github.com/wprig/wprig#readme",
+  "homepage": "https://github.com/felixarntz/beck-and-galo#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wprig/wprig.git"
+    "url": "git+https://github.com/felixarntz/beck-and-galo.git"
   },
   "bugs": {
-    "url": "https://github.com/wprig/wprig/issues"
+    "url": "https://github.com/felixarntz/beck-and-galo/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",

@@ -1,6 +1,6 @@
 {
-  "name": "wprig/wprig",
-  "description": "A progressive theme development rig for WordPress.",
+  "name": "felixarntz/beck-and-galo",
+  "description": "An AMP compatible WordPress theme built on top of WP Rig, using an existing AMP design template.",
   "type": "wordpress-theme",
   "license": "GPL-2.0",
   "require-dev": {

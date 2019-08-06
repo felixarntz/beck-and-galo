@@ -1,1 +1,8 @@
-{}
+{
+  "theme": {
+    "slug": "beck-and-galo",
+    "name": "Beck & Galo",
+    "author": "Felix Arntz",
+    "PHPNamespace": "Felix_Arntz\\Beck_And_Galo_Theme"
+  }
+}
