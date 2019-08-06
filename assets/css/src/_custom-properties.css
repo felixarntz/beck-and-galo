@@ -7,13 +7,13 @@
 
 :root {
 	--global-font-color: #fff;
-	--global-font-family: "Crimson Text", serif;
-	--global-font-size: 20;
+	--global-font-family: "Lora", serif;
+	--global-font-size: 16;
 	--global-font-line-height: 1.4;
 	--branding-font-color: #fff;
-	--branding-font-family: "Roboto Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--branding-font-family: "Playfair Display", serif;
 	--highlight-font-color: #fff;
-	--highlight-font-family: "Roboto Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--highlight-font-family: "Playfair Display", serif;
 	--content-width: 45rem;
 	--dropdown-symbol-width: 0.7em;
 

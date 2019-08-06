@@ -189,19 +189,19 @@ class Fonts {
 				'setting'      => 'global_font_family',
 				'css_property' => 'global-font-family',
 				'title'        => __( 'Global Font Family', 'wp-rig' ),
-				'default'      => 'Crimson Text',
+				'default'      => 'Lora',
 			],
 			[
 				'setting'      => 'branding_font_family',
 				'css_property' => 'branding-font-family',
 				'title'        => __( 'Branding Font Family', 'wp-rig' ),
-				'default'      => 'Roboto Condensed',
+				'default'      => 'Playfair Display',
 			],
 			[
 				'setting'      => 'highlight_font_family',
 				'css_property' => 'highlight-font-family',
 				'title'        => __( 'Highlight Font Family', 'wp-rig' ),
-				'default'      => 'Roboto Condensed',
+				'default'      => 'Playfair Display',
 			],
 		];
 	}
