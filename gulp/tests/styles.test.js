@@ -79,7 +79,7 @@ test('partials imported', (done) => {
     const file = files[0];
     const fileContents = file.contents.toString('utf-8');
     expect(fileContents).toContain(':root');
-    expect(fileContents).toContain('--global-font-color:#333');
+    expect(fileContents).toContain('--global-font-color:#fff');
   }
 
   pump([
@@ -100,7 +100,7 @@ test('custom properties processed', (done) => {
     const file = files[0];
     const fileContents = file.contents.toString('utf-8');
     expect(fileContents).toContain('color:#e36d60');
-    expect(fileContents).toContain('font-family:"Crimson Text",serif');
+    expect(fileContents).toContain('font-family:"Lora",serif');
   }
 
   pump([

@@ -27,7 +27,7 @@ matrix:
     - php: 7.3
       env: INTEGRATION=1 WP_VERSION=latest
     - php: 7.3
-      env: INTEGRATION=1 WP_VERSION=4.5
+      env: INTEGRATION=1 WP_VERSION=5.0
 
   allow_failures:
     - php: 'nightly'
