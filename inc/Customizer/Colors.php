@@ -136,37 +136,37 @@ class Colors {
 				'setting'      => 'global_font_color',
 				'css_property' => 'global-font-color',
 				'title'        => __( 'Global Font Color', 'wp-rig' ),
-				'default'      => '#333333',
+				'default'      => '#ffffff',
 			],
 			[
 				'setting'      => 'color_link',
 				'css_property' => 'color-link',
 				'title'        => __( 'Link Color', 'wp-rig' ),
-				'default'      => '#0073aa',
+				'default'      => '#ffffff',
 			],
 			[
 				'setting'      => 'color_link_visited',
 				'css_property' => 'color-link-visited',
 				'title'        => __( 'Link Visited Color', 'wp-rig' ),
-				'default'      => '#333333',
+				'default'      => '#ffffff',
 			],
 			[
 				'setting'      => 'color_link_active',
 				'css_property' => 'color-link-active',
 				'title'        => __( 'Link Active Color', 'wp-rig' ),
-				'default'      => '#00a0d2',
+				'default'      => '#ffffff',
 			],
 			[
 				'setting'      => 'branding_font_color',
 				'css_property' => 'branding-font-color',
 				'title'        => __( 'Branding Font Color', 'wp-rig' ),
-				'default'      => '#333333',
+				'default'      => '#ffffff',
 			],
 			[
 				'setting'      => 'highlight_font_color',
 				'css_property' => 'highlight-font-color',
 				'title'        => __( 'Highlight Font Color', 'wp-rig' ),
-				'default'      => '#333333',
+				'default'      => '#ffffff',
 			],
 		];
 	}

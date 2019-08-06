@@ -6,13 +6,13 @@
  **/
 
 :root {
-	--global-font-color: #333;
+	--global-font-color: #fff;
 	--global-font-family: "Crimson Text", serif;
 	--global-font-size: 20;
 	--global-font-line-height: 1.4;
-	--branding-font-color: #333;
+	--branding-font-color: #fff;
 	--branding-font-family: "Roboto Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
-	--highlight-font-color: #333;
+	--highlight-font-color: #fff;
 	--highlight-font-family: "Roboto Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
 	--content-width: 45rem;
 	--dropdown-symbol-width: 0.7em;
@@ -28,9 +28,9 @@
 	--color-theme-grey: #95a5a6;
 	--color-theme-white: #ecf0f1;
 
-	--color-link: #0073aa;
-	--color-link-visited: #333;
-	--color-link-active: #00a0d2;
+	--color-link: #fff;
+	--color-link-visited: #fff;
+	--color-link-active: #fff;
 
 	--color-quote-border: #000;
 	--color-quote-citation: #6c7781;
