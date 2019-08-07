@@ -1,8 +1,11 @@
 @import "_custom-properties.css";
 
 .ab-button {
-	background-color: var(--color-theme-black);
-	color: var(--color-theme-white);
+	background-color: transparent;
+	border: 1px solid;
+	border-color: var(--global-font-color);
+	border-radius: 0;
+	color: var(--global-font-color);
 }
 
 .wp-block-atomic-blocks-ab-button.is-style-primary .ab-button {

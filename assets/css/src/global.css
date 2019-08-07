@@ -122,16 +122,20 @@ input[type="submit"],
 .button,
 .comment-reply-link {
 	appearance: none;
-	border: 0;
-	border-radius: 3px;
-	background: var(--color-theme-black);
-	color: var(--color-theme-white);
+	border: 1px solid;
+	border-color: var(--global-font-color);
+	border-radius: 0;
+	background: transparent;
+	color: var(--global-font-color);
 	font-family: var(--highlight-font-family);
 	font-size: var(--font-size-regular);
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+	line-height: 1.125;
+	padding: 0.7em 0.8em;
 	cursor: pointer;
 	text-decoration: none;
+	white-space: nowrap;
+	word-wrap: normal;
+	vertical-align: middle;
 
 	&.button-primary {
 		background: var(--color-theme-primary);
@@ -161,7 +165,7 @@ input[type="submit"]:focus,
 .comment-reply-link:hover,
 .comment-reply-link:active,
 .comment-reply-link:focus {
-	color: var(--color-theme-grey);
+	color: var(--global-font-color);
 }
 
 input[type="text"],
