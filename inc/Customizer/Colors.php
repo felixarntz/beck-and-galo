@@ -142,13 +142,13 @@ class Colors {
 				'setting'      => 'global_background_color', // Only used if no custom background support.
 				'css_property' => 'global-background-color',
 				'title'        => __( 'Background Color', 'wp-rig' ),
-				'default'      => '#ffffff',
+				'default'      => '#1d1d1d',
 			],
 			[
 				'setting'      => 'global_background_color_alt',
 				'css_property' => 'global-background-color-alt',
 				'title'        => __( 'Background Color (alt.)', 'wp-rig' ),
-				'default'      => '#eeeeee',
+				'default'      => '#333333',
 			],
 			[
 				'setting'      => 'global_font_color',
@@ -190,7 +190,7 @@ class Colors {
 				'setting'      => 'global_border_color',
 				'css_property' => 'global-border-color',
 				'title'        => __( 'Border Color', 'wp-rig' ),
-				'default'      => '#cccccc',
+				'default'      => '#444444',
 			],
 		];
 
@@ -248,7 +248,7 @@ class Colors {
 				'setting'      => 'color_theme_black',
 				'css_property' => 'color-theme-black',
 				'title'        => __( 'Black Color', 'wp-rig' ),
-				'default'      => '#1c2833',
+				'default'      => '#000000',
 			],
 			[
 				'setting'      => 'color_theme_grey',
@@ -260,7 +260,7 @@ class Colors {
 				'setting'      => 'color_theme_white',
 				'css_property' => 'color-theme-white',
 				'title'        => __( 'White Color', 'wp-rig' ),
-				'default'      => '#ecf0f1',
+				'default'      => '#ffffff',
 			],
 		];
 	}

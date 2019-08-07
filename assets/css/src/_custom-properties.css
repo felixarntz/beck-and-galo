@@ -7,8 +7,8 @@
 
 :root {
 	--global-background-color: #1d1d1d;
-	--global-background-color-alt: #eee;
-	--global-border-color: #ccc;
+	--global-background-color-alt: #333;
+	--global-border-color: #444;
 	--global-font-color: #fff;
 	--global-font-family: "Lora", serif;
 	--global-font-size: 16;
@@ -27,9 +27,9 @@
 	--color-theme-green: #27ae60;
 	--color-theme-blue: #2980b9;
 	--color-theme-yellow: #f1c40f;
-	--color-theme-black: #1c2833;
+	--color-theme-black: #000;
 	--color-theme-grey: #95a5a6;
-	--color-theme-white: #ecf0f1;
+	--color-theme-white: #fff;
 
 	--color-link: #fff;
 	--color-link-visited: #fff;
