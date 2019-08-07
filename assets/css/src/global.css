@@ -183,11 +183,14 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
+select,
 textarea {
+	background: transparent;
 	color: var(--global-font-color);
-	border: 1px solid;
-	border-color: var(--global-border-color);
-	border-radius: 3px;
+	border: 0;
+	border-bottom: 1px solid;
+	border-bottom-color: var(--global-font-color);
+	border-radius: 0;
 	padding: 3px;
 }
 
@@ -206,13 +209,68 @@ input[type="time"]:focus,
 input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
+select:focus,
 textarea:focus {
 	color: var(--highlight-font-color);
+	border-bottom-color: var(--highlight-font-color);
 }
 
-select {
+input[type="range"] {
+	border-bottom: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	appearance: none;
 	border: 1px solid;
-	border-color: var(--global-border-color);
+	border-color: var(--global-font-color);
+	height: 20px;
+	width: 20px;
+	margin-right: 0.5rem;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+}
+
+input[type="radio"] {
+	border-radius: 20px;
+}
+
+input[type="checkbox"]::after,
+input[type="radio"]::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: var(--global-background-color);
+	content: " ";
+	line-height: var(--global-font-line-height);
+	text-align: center;
+	vertical-align: middle;
+}
+
+input[type="checkbox"]:checked::after {
+	background-color: var(--global-font-color);
+	color: var(--global-background-color);
+	content: "✓";
+}
+
+input[type="radio"]:checked {
+	background-color: var(--global-background-color);
+}
+
+input[type="radio"]::after {
+	top: 3px;
+	bottom: 3px;
+	left: 3px;
+	right: 3px;
+	border-radius: 12px;
+}
+
+input[type="radio"]:checked::after {
+	content: "";
+	background-color: #fff;
 }
 
 /*--------------------------------------------------------------
