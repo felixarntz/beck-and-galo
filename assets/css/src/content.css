@@ -33,6 +33,15 @@
 	margin-bottom: 1rem;
 }
 
+.entry:last-child {
+	margin-bottom: 0;
+
+	& > :last-child {
+		border-bottom: 0;
+		margin-bottom: 0;
+	}
+}
+
 .entry-meta,
 .entry-footer {
 	color: var(--highlight-font-color);
@@ -57,7 +66,7 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 0 0 1.5em;
 }
 
 .page-content > *,
@@ -135,7 +144,8 @@
 .entry-footer {
 	clear: both;
 	padding: 1.5em 1.5rem 3em;
-	border-bottom: 1px solid #111;
+	border-bottom: 1px solid;
+	border-bottom-color: var(--highlight-font-color);
 }
 
 @media (--content-query) {

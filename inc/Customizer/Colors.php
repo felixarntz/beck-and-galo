@@ -23,7 +23,7 @@ class Colors {
 	public function initialize() {
 		add_filter( 'wprig_editor_color_palette', [ $this, 'filter_wprig_editor_color_palette' ] );
 		add_filter( 'wp_rig_preloading_styles_enabled', '__return_false' ); // Stylesheets must be included before custom properties.
-		add_action( 'wp_head', [ $this, 'action_print_css_custom_properties_colors' ] );
+		add_action( 'wp_head', [ $this, 'action_print_css_custom_properties_colors' ], 8 );
 		add_action( 'customize_register', [ $this, 'action_customize_register' ] );
 	}
 
@@ -71,6 +71,9 @@ class Colors {
 		$colors = array_merge( $this->get_base_colors(), $this->get_custom_theme_colors() );
 
 		$partial_settings = [];
+		if ( current_theme_supports( 'custom-background' ) ) { // Replaces the component's own background color setting.
+			$partial_settings[] = 'background_color';
+		}
 		foreach ( $colors as $color_data ) {
 			$wp_customize->add_setting(
 				$color_data['setting'],
@@ -117,6 +120,9 @@ class Colors {
 		$colors = array_merge( $this->get_base_colors(), $this->get_custom_theme_colors() );
 
 		echo ':root{';
+		if ( current_theme_supports( 'custom-background' ) && get_background_color() ) { // Replaces the component's own background color setting.
+			echo '--global-background-color:#' . esc_attr( get_background_color() ) . ';';
+		}
 		foreach ( $colors as $color_data ) {
 			$value = get_theme_mod( $color_data['setting'], $color_data['default'] );
 
@@ -131,11 +137,23 @@ class Colors {
 	 * @return array List of base colors data.
 	 */
 	protected function get_base_colors() {
-		return [
+		$colors = [
+			[
+				'setting'      => 'global_background_color', // Only used if no custom background support.
+				'css_property' => 'global-background-color',
+				'title'        => __( 'Background Color', 'wp-rig' ),
+				'default'      => '#ffffff',
+			],
+			[
+				'setting'      => 'global_background_color_alt',
+				'css_property' => 'global-background-color-alt',
+				'title'        => __( 'Background Color (alt.)', 'wp-rig' ),
+				'default'      => '#eeeeee',
+			],
 			[
 				'setting'      => 'global_font_color',
 				'css_property' => 'global-font-color',
-				'title'        => __( 'Global Font Color', 'wp-rig' ),
+				'title'        => __( 'Font Color', 'wp-rig' ),
 				'default'      => '#ffffff',
 			],
 			[
@@ -168,7 +186,19 @@ class Colors {
 				'title'        => __( 'Highlight Font Color', 'wp-rig' ),
 				'default'      => '#ffffff',
 			],
+			[
+				'setting'      => 'global_border_color',
+				'css_property' => 'global-border-color',
+				'title'        => __( 'Border Color', 'wp-rig' ),
+				'default'      => '#cccccc',
+			],
 		];
+
+		if ( current_theme_supports( 'custom-background' ) ) {
+			array_shift( $colors );
+		}
+
+		return $colors;
 	}
 
 	/**

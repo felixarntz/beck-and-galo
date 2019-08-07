@@ -6,6 +6,9 @@
  **/
 
 :root {
+	--global-background-color: #1d1d1d;
+	--global-background-color-alt: #eee;
+	--global-border-color: #ccc;
 	--global-font-color: #fff;
 	--global-font-family: "Lora", serif;
 	--global-font-size: 16;
