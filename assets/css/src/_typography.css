@@ -26,6 +26,7 @@ h6 {
 	color: var(--highlight-font-color);
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
+	font-weight: 400;
 	clear: both;
 }
 

@@ -14,7 +14,6 @@
 .comment-reply-title {
 	margin-bottom: 1em;
 	font-size: 2em;
-	font-weight: 900;
 }
 
 .comment-list {
@@ -162,12 +161,6 @@
 	font-style: italic;
 	background: hsl(0, 0%, 95%);
 }
-
-/* stylelint-disable */
-.comment-form a {
-	font-weight: 500;
-}
-/* stylelint-enable */
 
 .comment-form label {
 	width: 13em;

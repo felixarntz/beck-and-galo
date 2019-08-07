@@ -24,6 +24,8 @@ html {
 body {
 	background: var(--global-background-color);
 	/* Fallback for when there is no custom background color defined. */
+	font-smooth: always;
+	-webkit-font-smoothing: antialiased;
 }
 /* stylelint-enable */
 
@@ -35,6 +37,11 @@ hr {
 	margin-bottom: 1.5em;
 }
 /* stylelint-enable */
+
+b,
+strong {
+	font-weight: bold;
+}
 
 ul,
 ol {
