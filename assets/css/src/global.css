@@ -306,9 +306,10 @@ input[type="radio"]:checked::after {
 	color: var(--branding-font-color);
 	font-family: var(--branding-font-family);
 	font-stretch: condensed;
-	font-size: 38px;
+	font-size: var(--font-size-large);
 	font-weight: 700;
 	line-height: 1.2;
+	text-transform: uppercase;
 }
 
 .site-title a {
@@ -319,11 +320,12 @@ input[type="radio"]:checked::after {
 .site-description {
 	margin: 0.4375em 0 0;
 	color: var(--branding-font-color);
-	font-family: var(--branding-font-family);
+	font-family: var(--accent-font-family);
 	font-stretch: condensed;
-	font-size: 17px;
+	font-size: var(--font-size-small);
 	font-weight: inherit;
-	line-height: 1.4;
+	line-height: 1;
+	text-transform: uppercase;
 	word-wrap: break-word;
 }
 

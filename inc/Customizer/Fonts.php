@@ -221,6 +221,12 @@ class Fonts {
 				'title'        => __( 'Highlight Font Family', 'wp-rig' ),
 				'default'      => 'Playfair Display',
 			],
+			[
+				'setting'      => 'accent_font_family',
+				'css_property' => 'accent-font-family',
+				'title'        => __( 'Accent Font Family', 'wp-rig' ),
+				'default'      => 'Lato',
+			],
 		];
 	}
 

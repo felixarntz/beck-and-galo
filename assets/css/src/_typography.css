@@ -28,6 +28,24 @@ h6 {
 	font-stretch: condensed;
 	font-weight: 400;
 	clear: both;
+	letter-spacing: 0.06rem;
+}
+
+/* stylelint-disable */
+h1 {
+	letter-spacing: 0.1px;
+}
+/* stylelint-enable */
+
+h2 {
+	letter-spacing: 0;
+}
+
+h4,
+h5,
+h6 {
+	font-family: var(--accent-font-family);
+	letter-spacing: 0;
 }
 
 .entry-header h1.entry-title,
