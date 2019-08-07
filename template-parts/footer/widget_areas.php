@@ -16,17 +16,33 @@ wp_rig()->print_styles( 'wp-rig-footer-widget-areas', 'wp-rig-widgets' );
 $widget_area_count = wp_rig()->get_footer_widget_area_count();
 
 ?>
-<aside id="footer-widget-areas" class="footer-widget-areas alignwide" aria-label="<?php esc_attr_e( 'Footer Widgets', 'wp-rig' ); ?>">
-	<?php
-	for ( $column = 1; $column <= $widget_area_count; $column++ ) {
-		if ( ! wp_rig()->is_footer_widget_area_active( $column ) ) {
-			continue;
+<aside id="footer-widget-areas" aria-label="<?php esc_attr_e( 'Footer Widgets', 'wp-rig' ); ?>">
+	<div class="footer-widget-areas">
+		<?php
+		for ( $column = 1; $column <= 2; $column++ ) {
+			if ( ! wp_rig()->is_footer_widget_area_active( $column ) ) {
+				continue;
+			}
+			?>
+			<div id="<?php echo esc_attr( 'footer-widget-area-' . $column ); ?>" class="footer-widget-area widget-area">
+				<?php wp_rig()->display_footer_widget_area( $column ); ?>
+			</div>
+			<?php
 		}
 		?>
-		<div id="<?php echo esc_attr( 'footer-widget-area-' . $column ); ?>" class="footer-widget-area widget-area">
-			<?php wp_rig()->display_footer_widget_area( $column ); ?>
-		</div>
+	</div>
+	<div class="footer-widget-areas alignwide">
 		<?php
-	}
-	?>
+		for ( $column = 3; $column <= $widget_area_count; $column++ ) {
+			if ( ! wp_rig()->is_footer_widget_area_active( $column ) ) {
+				continue;
+			}
+			?>
+			<div id="<?php echo esc_attr( 'footer-widget-area-' . $column ); ?>" class="footer-widget-area widget-area">
+				<?php wp_rig()->display_footer_widget_area( $column ); ?>
+			</div>
+			<?php
+		}
+		?>
+	</div>
 </aside>

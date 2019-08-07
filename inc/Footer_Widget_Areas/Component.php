@@ -27,7 +27,7 @@ use function dynamic_sidebar;
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
-	const WIDGET_AREA_COUNT = 4;
+	const WIDGET_AREA_COUNT = 5;
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -65,11 +65,26 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Registers the footer widget areas.
 	 */
 	public function action_register_footer_widget_areas() {
-		for ( $column = 1; $column <= static::WIDGET_AREA_COUNT; $column++ ) {
+		for ( $column = 1; $column <= 2; $column++ ) {
 			register_sidebar(
 				[
 					/* translators: %s: column number */
-					'name'          => esc_html( sprintf( __( 'Footer Column %s', 'wp-rig' ), $column ) ),
+					'name'          => esc_html( sprintf( __( 'Narrow Footer Column %s', 'wp-rig' ), $column ) ),
+					'id'            => sprintf( 'footer-%s', $column ),
+					'description'   => esc_html__( 'Add widgets here to appear in the footer.', 'wp-rig' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				]
+			);
+		}
+
+		for ( $column = 3; $column <= static::WIDGET_AREA_COUNT; $column++ ) {
+			register_sidebar(
+				[
+					/* translators: %s: column number */
+					'name'          => esc_html( sprintf( __( 'Wide Footer Column %s', 'wp-rig' ), $column - 2 ) ),
 					'id'            => sprintf( 'footer-%s', $column ),
 					'description'   => esc_html__( 'Add widgets here to appear in the footer.', 'wp-rig' ),
 					'before_widget' => '<section id="%1$s" class="widget %2$s">',
