@@ -159,7 +159,7 @@
 	font-stretch: condensed;
 	font-size: 0.9em;
 	font-style: italic;
-	background: hsl(0, 0%, 95%);
+	background: var(--global-background-color-alt);
 }
 
 .comment-form label {
