@@ -208,7 +208,7 @@ class Colors {
 				'setting'      => 'global_border_color',
 				'css_property' => 'global-border-color',
 				'title'        => __( 'Border Color', 'wp-rig' ),
-				'default'      => '#444444',
+				'default'      => '#555555',
 			],
 		];
 
