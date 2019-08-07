@@ -38,10 +38,12 @@ hr {
 }
 /* stylelint-enable */
 
+/* stylelint-disable */
 b,
 strong {
 	font-weight: bold;
 }
+/* stylelint-enable */
 
 ul,
 ol {
