@@ -26,7 +26,7 @@ namespace WP_Rig\WP_Rig;
 
 	<?php
 	$wp_rig_description = get_bloginfo( 'description', 'display' );
-	if ( $wp_rig_description || is_customize_preview() ) {
+	if ( is_front_page() && ( $wp_rig_description || is_customize_preview() ) ) {
 		?>
 		<p class="site-description">
 			<?php echo $wp_rig_description; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>

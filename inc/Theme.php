@@ -149,6 +149,7 @@ class Theme {
 			new Sidebars\Component(),
 			new Footer_Widget_Areas\Component(),
 			new Footer_Info\Component(),
+			new Headerbar\Component(),
 			new Custom_Background\Component(),
 			new Custom_Header\Component(),
 			new Custom_Logo\Component(),

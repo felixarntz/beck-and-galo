@@ -20,6 +20,10 @@
 	--accent-font-family: "Lato", sans-serif;
 	--content-width: 44rem;
 	--dropdown-symbol-width: 0.7em;
+	--headerbar-background-color: #000;
+	--headerbar-font-color: #fff;
+	--headerbar-link: #fff;
+	--headerbar-link-active: #fff;
 
 	/* Custom editor colors */
 	--color-theme-primary: #e36d60;
