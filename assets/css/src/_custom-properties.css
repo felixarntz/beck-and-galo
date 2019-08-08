@@ -37,7 +37,7 @@
 	--color-theme-white: #fff;
 
 	--color-link: #fff;
-	--color-link-visited: #fff;
+	--color-link-visited: var(--color-link);
 	--color-link-active: #fff;
 
 	/* Custom editor font sizes */

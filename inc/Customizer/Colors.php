@@ -181,12 +181,6 @@ class Colors {
 				'default'      => '#ffffff',
 			],
 			[
-				'setting'      => 'color_link_visited',
-				'css_property' => 'color-link-visited',
-				'title'        => __( 'Link Visited Color', 'wp-rig' ),
-				'default'      => '#ffffff',
-			],
-			[
 				'setting'      => 'color_link_active',
 				'css_property' => 'color-link-active',
 				'title'        => __( 'Link Active Color', 'wp-rig' ),
