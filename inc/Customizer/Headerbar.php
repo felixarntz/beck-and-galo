@@ -21,8 +21,23 @@ class Headerbar {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
+		add_filter( 'wp_rig_using_sidebar_navigation', [ $this, 'filter_wp_rig_using_sidebar_navigation' ] );
 		add_filter( 'wp_rig_css_files', [ $this, 'filter_wp_rig_css_files' ] );
 		add_action( 'customize_register', [ $this, 'action_customize_register' ] );
+	}
+
+	/**
+	 * Filters whether the toggled main navigation should use a sidebar.
+	 *
+	 * @param bool $use_sidebar Whether to use a sidebar for the navigation.
+	 * @return bool Filtered $use_sidebar.
+	 */
+	public function filter_wp_rig_using_sidebar_navigation( bool $use_sidebar ) {
+		if ( 'sidebar' === get_theme_mod( 'mobile_navigation_type', 'sidebar' ) ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**
@@ -48,6 +63,27 @@ class Headerbar {
 	 * @param WP_Customize_Manager $wp_customize Customizer manager instance.
 	 */
 	public function action_customize_register( WP_Customize_Manager $wp_customize ) {
+		$wp_customize->add_setting(
+			'mobile_navigation_type',
+			[
+				'default' => 'sidebar',
+			]
+		);
+		$wp_customize->add_control(
+			'mobile_navigation_type',
+			[
+				'type'        => 'select',
+				'label'       => __( 'Mobile navigation type', 'wp-rig' ),
+				'description' => __( 'Choose how the navigation should appear on small screens.', 'wp-rig' ),
+				'section'     => 'theme_options',
+				'priority'    => 5,
+				'choices'     => [
+					'sidebar'  => __( 'Sidebar', 'wp-rig' ),
+					'dropdown' => __( 'Dropdown', 'wp-rig' ),
+				],
+			]
+		);
+
 		$wp_customize->add_setting(
 			'auto_expand_main_navigation',
 			[

@@ -174,3 +174,13 @@
 		background: var(--headerbar-background-color);
 	}
 }
+
+/*--------------------------------------------------------------
+## Navigation sidebar
+--------------------------------------------------------------*/
+@media (--wide-menu-query) {
+
+	.nav--toggle-small.nav--toggled-on + .site-sidebar-js {
+		display: none;
+	}
+}

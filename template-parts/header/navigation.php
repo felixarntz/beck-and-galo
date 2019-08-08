@@ -7,8 +7,8 @@
 
 namespace WP_Rig\WP_Rig;
 
-$primary_nav_active     = wp_rig()->is_primary_nav_menu_active();
-$main_navigation_active = $primary_nav_active || wp_rig()->is_social_nav_menu_active();
+$main_navigation_active = wp_rig()->is_primary_nav_menu_active() || wp_rig()->is_social_nav_menu_active();
+$toggle_controls        = wp_rig()->using_sidebar_navigation() ? 'site-sidebar' : 'site-navigation';
 
 if ( $main_navigation_active && wp_rig()->is_amp() ) {
 	?>
@@ -34,11 +34,11 @@ if ( $main_navigation_active && wp_rig()->is_amp() ) {
 	<?php
 	if ( $main_navigation_active ) {
 		?>
-		<button class="menu-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'wp-rig' ); ?>" aria-controls="site-navigation" aria-expanded="false"
+		<button class="menu-toggle" aria-controls="<?php echo esc_attr( $toggle_controls ); ?>" aria-expanded="false"
 			<?php
 			if ( wp_rig()->is_amp() ) {
 				?>
-				on="tap:AMP.setState( { siteNavigationMenu: { expanded: ! siteNavigationMenu.expanded } } )"
+				on="tap:AMP.setState( { siteNavigationMenu: { expanded: ! siteNavigationMenu.expanded } } ),site-sidebar.toggle"
 				[aria-expanded]="siteNavigationMenu.expanded ? 'true' : 'false'"
 				<?php
 			}
@@ -56,23 +56,19 @@ if ( $main_navigation_active && wp_rig()->is_amp() ) {
 		get_template_part( 'template-parts/header/branding' );
 	}
 
-	if ( $main_navigation_active ) {
-		?>
-		<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Main menu', 'wp-rig' ); ?>">
-			<?php
-			if ( $primary_nav_active ) {
-				?>
-				<div class="primary-menu-container">
-					<?php wp_rig()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
-				</div>
-				<?php
-			}
-
-			get_template_part( 'template-parts/header/social_navigation' );
-			?>
-		</nav><!-- #site-navigation -->
-		<?php
+	if ( $main_navigation_active && ( ! wp_rig()->using_sidebar_navigation() || wp_style_is( 'wp-rig-wide-screens-show-menu' ) ) ) {
+		get_template_part( 'template-parts/header/main_navigation' );
 	}
 	?>
 </div>
+
+<?php
+// For AMP, this uses amp-sidebar, which is therefore printed directly in header.php.
+if ( $main_navigation_active && wp_rig()->using_sidebar_navigation() && ! wp_rig()->is_amp() ) {
+	?>
+	<div id="site-sidebar" class="site-sidebar site-sidebar-js">
+		<?php get_template_part( 'template-parts/header/main_navigation' ); ?>
+	</div>
+	<?php
+}
 
