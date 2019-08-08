@@ -352,8 +352,8 @@ input[type="radio"]:checked::after {
 	background: transparent;
 
 	& .icon {
-		height: 1.75rem;
-		width: 1.75rem;
+		height: var(--social-icon-size);
+		width: var(--social-icon-size);
 	}
 
 	& .icon-bars {
