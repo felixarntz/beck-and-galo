@@ -43,9 +43,13 @@ class Component implements Component_Interface {
 			'admin-bar',
 			array(
 				'callback' => function() {
-					_admin_bar_bump_cb();
 					?>
 					<style type="text/css" media="screen">
+						<?php
+						ob_start();
+						_admin_bar_bump_cb();
+						echo str_replace( [ '<style type="text/css" media="screen">', '</style>' ], '', ob_get_clean() );
+						?>
 						.site-headerbar { top: 32px !important; }
 						@media screen and ( max-width: 782px ) {
 							.site-headerbar { top: 46px !important; }
