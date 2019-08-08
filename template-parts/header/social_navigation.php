@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the footer social navigation
+ * Template part for displaying the header social navigation
  *
  * @package wp_rig
  */

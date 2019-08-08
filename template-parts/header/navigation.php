@@ -7,9 +7,10 @@
 
 namespace WP_Rig\WP_Rig;
 
-$primary_nav_active = wp_rig()->is_primary_nav_menu_active();
+$primary_nav_active     = wp_rig()->is_primary_nav_menu_active();
+$main_navigation_active = $primary_nav_active || wp_rig()->is_social_nav_menu_active();
 
-if ( $primary_nav_active && wp_rig()->is_amp() ) {
+if ( $main_navigation_active && wp_rig()->is_amp() ) {
 	?>
 	<amp-state id="siteNavigationMenu">
 		<script type="application/json">
@@ -23,7 +24,7 @@ if ( $primary_nav_active && wp_rig()->is_amp() ) {
 ?>
 <div id="site-headerbar" class="site-headerbar nav--toggle-sub nav--toggle-small"
 	<?php
-	if ( $primary_nav_active && wp_rig()->is_amp() ) {
+	if ( $main_navigation_active && wp_rig()->is_amp() ) {
 		?>
 		[class]=" siteNavigationMenu.expanded ? 'site-headerbar nav--toggle-sub nav--toggle-small nav--toggled-on' : 'site-headerbar nav--toggle-sub nav--toggle-small' "
 		<?php
@@ -31,7 +32,7 @@ if ( $primary_nav_active && wp_rig()->is_amp() ) {
 	?>
 >
 	<?php
-	if ( $primary_nav_active ) {
+	if ( $main_navigation_active ) {
 		?>
 		<button class="menu-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'wp-rig' ); ?>" aria-controls="site-navigation" aria-expanded="false"
 			<?php
@@ -55,12 +56,20 @@ if ( $primary_nav_active && wp_rig()->is_amp() ) {
 		get_template_part( 'template-parts/header/branding' );
 	}
 
-	if ( $primary_nav_active ) {
+	if ( $main_navigation_active ) {
 		?>
 		<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Main menu', 'wp-rig' ); ?>">
-			<div class="primary-menu-container">
-				<?php wp_rig()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
-			</div>
+			<?php
+			if ( $primary_nav_active ) {
+				?>
+				<div class="primary-menu-container">
+					<?php wp_rig()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
+				</div>
+				<?php
+			}
+
+			get_template_part( 'template-parts/header/social_navigation' );
+			?>
 		</nav><!-- #site-navigation -->
 		<?php
 	}

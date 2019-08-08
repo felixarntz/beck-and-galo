@@ -627,12 +627,29 @@ input[type="radio"]:checked::after {
 		font-size: var(--font-size-regular);
 		font-weight: 400;
 	}
+
+	& .social-navigation {
+		margin: 0;
+		padding: 0;
+
+		& ul {
+			justify-content: flex-start;
+		}
+	}
+}
+
+@media (--narrow-menu-query) {
+
+	.site-headerbar .main-navigation > * {
+		padding-bottom: 1rem;
+	}
 }
 
 @media (--wide-menu-query) {
 
 	.site-headerbar .main-navigation {
 		position: static;
+		display: flex;
 	}
 
 	.site-headerbar.nav--toggle-sub ul ul {

@@ -47,5 +47,5 @@
 	--font-size-larger: calc(48 / var(--global-font-size) * 1rem);
 
 	/* Social icon size */
-	--social-icon-size: 2rem;
+	--social-icon-size: 1.5rem;
 }
