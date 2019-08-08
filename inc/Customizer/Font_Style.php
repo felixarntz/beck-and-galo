@@ -7,7 +7,6 @@
 
 namespace WP_Rig\WP_Rig\Customizer;
 
-use function WP_Rig\WP_Rig\wp_rig;
 use WP_Customize_Manager;
 use function add_filter;
 use function add_action;
@@ -24,6 +23,7 @@ class Font_Style {
 	public function initialize() {
 		add_filter( 'body_class', [ $this, 'filter_body_class' ] );
 		add_action( 'customize_register', [ $this, 'action_customize_register' ] );
+		add_action( 'customize_preview_init', [ $this, 'action_enqueue_customize_preview_js' ] );
 	}
 
 	/**
@@ -54,6 +54,7 @@ class Font_Style {
 			'text_transform_uppercase_branding',
 			[
 				'default'              => true,
+				'transport'            => 'postMessage',
 				'sanitize_callback'    => 'rest_sanitize_boolean',
 				'sanitize_js_callback' => 'rest_sanitize_boolean',
 			]
@@ -61,10 +62,10 @@ class Font_Style {
 		$wp_customize->add_control(
 			'text_transform_uppercase_branding',
 			[
-				'type'        => 'checkbox',
-				'label'       => __( 'Transform site title and tagline to display in uppercase?', 'wp-rig' ),
-				'section'     => 'fonts',
-				'priority'    => 80,
+				'type'     => 'checkbox',
+				'label'    => __( 'Transform site title and tagline to display in uppercase?', 'wp-rig' ),
+				'section'  => 'fonts',
+				'priority' => 80,
 			]
 		);
 
@@ -72,6 +73,7 @@ class Font_Style {
 			'text_transform_uppercase_main_navigation',
 			[
 				'default'              => false,
+				'transport'            => 'postMessage',
 				'sanitize_callback'    => 'rest_sanitize_boolean',
 				'sanitize_js_callback' => 'rest_sanitize_boolean',
 			]
@@ -79,11 +81,21 @@ class Font_Style {
 		$wp_customize->add_control(
 			'text_transform_uppercase_main_navigation',
 			[
-				'type'        => 'checkbox',
-				'label'       => __( 'Transform primary navigation to display in uppercase?', 'wp-rig' ),
-				'section'     => 'fonts',
-				'priority'    => 80,
+				'type'     => 'checkbox',
+				'label'    => __( 'Transform primary navigation to display in uppercase?', 'wp-rig' ),
+				'section'  => 'fonts',
+				'priority' => 80,
 			]
 		);
+	}
+
+	/**
+	 * Enqueues JavaScript to make Customizer preview reload changes asynchronously.
+	 */
+	public function action_enqueue_customize_preview_js() {
+		$binding = "wp.customize( settingId, function( value ) { value.bind( function( to ) { $( 'body' ).toggleClass( settingId.replace( 'text_transform_uppercase_', 'has-uppercase-' ).replace( '_', '-' ), to ); } ); } );";
+		$script  = "jQuery( function( $ ) { $.each( [ 'text_transform_uppercase_branding', 'text_transform_uppercase_main_navigation' ], function( i, settingId ) { " . $binding . ' } ) } );';
+
+		wp_add_inline_script( 'wp-rig-customizer', $script, 'after' );
 	}
 }
