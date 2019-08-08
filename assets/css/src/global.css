@@ -309,7 +309,6 @@ input[type="radio"]:checked::after {
 	font-size: var(--font-size-large);
 	font-weight: 700;
 	line-height: 1.2;
-	text-transform: uppercase;
 }
 
 .site-title a {
@@ -325,8 +324,15 @@ input[type="radio"]:checked::after {
 	font-size: var(--font-size-small);
 	font-weight: inherit;
 	line-height: 1;
-	text-transform: uppercase;
 	word-wrap: break-word;
+}
+
+.has-uppercase-branding {
+
+	& .site-title,
+	& .site-description {
+		text-transform: uppercase;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -610,7 +616,6 @@ input[type="radio"]:checked::after {
 		font-size: 87.5%;
 		margin: 0;
 		max-width: none;
-		text-transform: uppercase;
 	}
 
 	& .site-branding {
@@ -629,6 +634,10 @@ input[type="radio"]:checked::after {
 	.site-headerbar .main-navigation {
 		position: static;
 	}
+}
+
+.has-uppercase-main-navigation .site-headerbar .main-navigation {
+	text-transform: uppercase;
 }
 
 /*--------------------------------------------------------------
