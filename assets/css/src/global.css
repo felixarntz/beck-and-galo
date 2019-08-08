@@ -585,13 +585,13 @@ input[type="radio"]:checked::after {
 
 	& a,
 	& a:visited {
-		color: var(--headerbar-link);
+		color: var(--headerbar-color-link);
 	}
 
 	& a:hover,
 	& a:focus,
 	& a:active {
-		color: var(--headerbar-link-active);
+		color: var(--headerbar-color-link-active);
 	}
 
 	& .menu-toggle {

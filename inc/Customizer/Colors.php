@@ -204,6 +204,30 @@ class Colors {
 				'title'        => __( 'Border Color', 'wp-rig' ),
 				'default'      => '#555555',
 			],
+			[
+				'setting'      => 'headerbar_background_color', // Only used if no custom background support.
+				'css_property' => 'headerbar-background-color',
+				'title'        => __( 'Header Bar Background Color', 'wp-rig' ),
+				'default'      => '#000000',
+			],
+			[
+				'setting'      => 'headerbar_font_color',
+				'css_property' => 'headerbar-font-color',
+				'title'        => __( 'Header Bar Font Color', 'wp-rig' ),
+				'default'      => '#ffffff',
+			],
+			[
+				'setting'      => 'headerbar_color_link',
+				'css_property' => 'headerbar-color-link',
+				'title'        => __( 'Header Bar Link Color', 'wp-rig' ),
+				'default'      => '#ffffff',
+			],
+			[
+				'setting'      => 'headerbar_color_link_active',
+				'css_property' => 'headerbar-color-link-active',
+				'title'        => __( 'Header Bar Link Active Color', 'wp-rig' ),
+				'default'      => '#ffffff',
+			],
 		];
 
 		if ( current_theme_supports( 'custom-background' ) ) {
