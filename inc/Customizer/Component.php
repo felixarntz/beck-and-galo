@@ -48,6 +48,9 @@ class Component implements Component_Interface {
 		$post_content_toggles = new Post_Content_Toggles();
 		$post_content_toggles->initialize();
 
+		$headerbar = new Headerbar();
+		$headerbar->initialize();
+
 		$front_page = new Front_Page();
 		$front_page->initialize();
 
