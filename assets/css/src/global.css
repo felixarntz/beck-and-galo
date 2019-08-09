@@ -398,8 +398,6 @@ input[type="radio"]:checked::after {
 	margin: 0 auto 2em;
 	padding: 0 1em;
 	max-width: var(--content-width);
-	color: var(--highlight-font-color);
-	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
 
 	& .social-navigation {
@@ -409,6 +407,10 @@ input[type="radio"]:checked::after {
 
 		& ul {
 			justify-content: flex-start;
+		}
+
+		& a {
+			padding: 0;
 		}
 	}
 }
@@ -510,7 +512,8 @@ input[type="radio"]:checked::after {
 	}
 }
 
-.has-uppercase-main-navigation .site-headerbar .main-navigation {
+.has-uppercase-main-navigation .site-headerbar .main-navigation,
+.has-uppercase-main-navigation .site-sidebar .main-navigation {
 	text-transform: uppercase;
 }
 
@@ -539,6 +542,11 @@ input[type="radio"]:checked::after {
 
 	& .main-navigation {
 		font-size: 87.5%;
+		padding: 0;
+
+		& > * {
+			padding-bottom: 1rem;
+		}
 	}
 }
 

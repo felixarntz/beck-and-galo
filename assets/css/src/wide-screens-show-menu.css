@@ -160,6 +160,7 @@
 	.site-headerbar .main-navigation {
 		position: static;
 		display: flex;
+		align-items: center;
 	}
 
 	.site-headerbar.nav--toggle-small.nav--toggled-on .main-navigation {
@@ -167,11 +168,20 @@
 	}
 
 	.site-headerbar .main-navigation > * {
+		padding-right: 1rem;
 		padding-bottom: 0;
+
+		&:last-child {
+			padding-right: 0;
+		}
 	}
 
 	.site-headerbar.nav--toggle-sub ul ul {
 		background: var(--headerbar-background-color);
+	}
+
+	.site-sidebar .main-navigation > * {
+		padding-bottom: 0;
 	}
 }
 
