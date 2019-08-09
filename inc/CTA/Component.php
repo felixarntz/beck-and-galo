@@ -85,7 +85,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$wp_customize->add_control(
 			'cta[id]',
 			[
-				'type'           => 'dropdown_pages',
+				'type'           => 'dropdown-pages',
 				'label'          => __( 'CTA Button Link', 'wp-rig' ),
 				'description'    => __( 'Choose a page the button should link to.', 'wp-rig' ),
 				'section'        => 'header_image',
