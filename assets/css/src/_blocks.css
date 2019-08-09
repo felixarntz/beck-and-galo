@@ -74,6 +74,7 @@
 
 .wp-block-image figcaption {
 	color: var(--global-font-color);
+	font-size: var(--font-size-regular);
 }
 
 /*--------------------------------------------------------------
