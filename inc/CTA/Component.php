@@ -77,6 +77,25 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 
 		$wp_customize->add_setting(
+			'cta[id]',
+			[
+				'default' => '',
+			]
+		);
+		$wp_customize->add_control(
+			'cta[id]',
+			[
+				'type'           => 'dropdown_pages',
+				'label'          => __( 'CTA Button Link', 'wp-rig' ),
+				'description'    => __( 'Choose a page the button should link to.', 'wp-rig' ),
+				'section'        => 'header_image',
+				'priority'       => 80,
+				'theme_supports' => 'custom-header',
+				'allow_addition' => true,
+			]
+		);
+
+		$wp_customize->add_setting(
 			'cta[url]',
 			[
 				'default' => '',
@@ -87,7 +106,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			[
 				'type'           => 'url',
 				'label'          => __( 'CTA Button URL', 'wp-rig' ),
-				'description'    => __( 'Enter a URL the button should link to.', 'wp-rig' ),
+				'description'    => __( 'Alternatively, enter a URL the button should link to.', 'wp-rig' ),
 				'section'        => 'header_image',
 				'priority'       => 80,
 				'theme_supports' => 'custom-header',
@@ -102,6 +121,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$cta = (array) get_theme_mod( 'cta', [] );
 		if ( empty( $cta['label'] ) ) {
 			return;
+		}
+
+		if ( ! empty( $cta['id'] ) ) {
+			$cta['url'] = get_permalink( $cta['id'] );
 		}
 
 		if ( empty( $cta['url'] ) ) {
