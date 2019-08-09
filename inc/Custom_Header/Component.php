@@ -51,7 +51,7 @@ class Component implements Component_Interface {
 				'wp_rig_custom_header_args',
 				[
 					'default-image'      => get_template_directory_uri() . '/assets/images/hero.jpg',
-					'default-text-color' => '333333',
+					'default-text-color' => 'ffffff',
 					'width'              => 1800,
 					'height'             => 720,
 					'flex-height'        => true,
