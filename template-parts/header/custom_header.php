@@ -20,5 +20,14 @@ if ( ! has_header_image() ) {
 		<header>
 			<?php get_template_part( 'template-parts/header/branding' ); ?>
 		</header>
+		<?php
+		if ( wp_rig()->has_cta() ) {
+			?>
+			<footer>
+				<?php wp_rig()->display_cta(); ?>
+			</footer>
+			<?php
+		}
+		?>
 	</figcaption>
 </figure><!-- .header-image -->

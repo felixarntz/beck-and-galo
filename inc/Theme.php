@@ -153,6 +153,7 @@ class Theme {
 			new Custom_Background\Component(),
 			new Custom_Header\Component(),
 			new Custom_Logo\Component(),
+			new CTA\Component(),
 			new Post_Thumbnails\Component(),
 			new Post_Content\Component(),
 			new Customizer\Component(),
