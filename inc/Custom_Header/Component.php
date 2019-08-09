@@ -73,8 +73,8 @@ class Component implements Component_Interface {
 		echo '<style type="text/css">';
 
 		echo '.header-image { position: relative; } .header-image figcaption { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }';
-		echo '.header-image footer { position: absolute; right: 0; bottom: 0; left: 0; }';
-		echo '.header-image .cta-button { display: block; margin: 1.5rem auto; }';
+		echo '.header-image footer { position: absolute; right: 0; bottom: 0; left: 0; text-align: center }';
+		echo '.header-image .cta-button { display: inline-block; margin: 1.5rem; }';
 
 		echo '.header-image > amp-img, .header-image > img { display: block; max-height: calc(100vh - 3.5rem); overflow: hidden; }';
 		echo '.header-image > img { height: 720px; object-fit: cover; }';
