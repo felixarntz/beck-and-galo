@@ -9,6 +9,8 @@ namespace WP_Rig\WP_Rig\Custom_Header;
 
 use WP_Rig\WP_Rig\Component_Interface;
 use function WP_Rig\WP_Rig\wp_rig;
+use WP_Customize_Manager;
+use function add_filter;
 use function add_action;
 use function add_theme_support;
 use function apply_filters;
@@ -37,8 +39,9 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'after_setup_theme', [ $this, 'action_add_custom_header_support' ] );
 		add_filter( 'get_header_image_tag', [ $this, 'prepare_attributes_for_amp' ] );
+		add_action( 'after_setup_theme', [ $this, 'action_add_custom_header_support' ] );
+		add_action( 'customize_register', [ $this, 'action_customize_register' ] );
 	}
 
 	/**
@@ -86,6 +89,15 @@ class Component implements Component_Interface {
 		}
 
 		echo '</style>';
+	}
+
+	/**
+	 * Ensures the Customizer section for the custom header only appears on the front page.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Customizer manager instance.
+	 */
+	public function action_customize_register( WP_Customize_Manager $wp_customize ) {
+		$wp_customize->get_section( 'header_image' )->active_callback = 'is_front_page';
 	}
 
 	/**
