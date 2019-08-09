@@ -176,9 +176,3 @@
 	text-decoration: none;
 }
 /* stylelint-enable */
-
-/* Text widget */
-.textwidget {
-	font-size: 80%;
-	line-height: 1.3;
-}
