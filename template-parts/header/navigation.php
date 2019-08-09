@@ -37,8 +37,9 @@ if ( $main_navigation_active && wp_rig()->is_amp() ) {
 		<button class="menu-toggle" aria-controls="<?php echo esc_attr( $toggle_controls ); ?>" aria-expanded="false"
 			<?php
 			if ( wp_rig()->is_amp() ) {
+				// Once amp-sidebar can be used correctly, add 'site-sidebar.toggle' action here.
 				?>
-				on="tap:AMP.setState( { siteNavigationMenu: { expanded: ! siteNavigationMenu.expanded } } ),site-sidebar.toggle"
+				on="tap:AMP.setState( { siteNavigationMenu: { expanded: ! siteNavigationMenu.expanded } } )"
 				[aria-expanded]="siteNavigationMenu.expanded ? 'true' : 'false'"
 				<?php
 			}
@@ -64,7 +65,8 @@ if ( $main_navigation_active && wp_rig()->is_amp() ) {
 
 <?php
 // For AMP, this uses amp-sidebar, which is therefore printed directly in header.php.
-if ( $main_navigation_active && wp_rig()->using_sidebar_navigation() && ! wp_rig()->is_amp() ) {
+// This currently replaces amp-sidebar usage because of an AMP plugin bug (see https://github.com/ampproject/amp-wp/pull/2926).
+if ( $main_navigation_active && wp_rig()->using_sidebar_navigation()/* && ! wp_rig()->is_amp()*/ ) {
 	?>
 	<div id="site-sidebar" class="site-sidebar site-sidebar-js">
 		<?php get_template_part( 'template-parts/header/main_navigation' ); ?>
