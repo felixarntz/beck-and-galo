@@ -286,8 +286,14 @@ input[type="radio"]:checked::after {
 }
 
 .custom-logo-link {
-	display: inline-block;
+	display: block;
 	margin: 0 auto 1em;
+}
+
+.custom-logo {
+	display: block;
+	height: 125px;
+	width: 125px;
 }
 
 .site-branding {
@@ -483,7 +489,18 @@ input[type="radio"]:checked::after {
 	}
 
 	& .site-branding {
+		display: flex;
+		align-items: center;
 		padding: 0;
+	}
+
+	& .custom-logo-link {
+		margin-bottom: 0;
+	}
+
+	& .custom-logo {
+		height: 2.5rem;
+		width: 2.5rem;
 	}
 
 	& .site-title,
