@@ -40,7 +40,6 @@ namespace WP_Rig\WP_Rig;
 		<?php
 		if ( is_front_page() ) {
 			get_template_part( 'template-parts/header/custom_header' );
-			get_template_part( 'template-parts/header/branding' );
 		}
 		?>
 	</header><!-- #masthead -->

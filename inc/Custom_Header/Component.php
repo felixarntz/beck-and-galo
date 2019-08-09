@@ -8,6 +8,7 @@
 namespace WP_Rig\WP_Rig\Custom_Header;
 
 use WP_Rig\WP_Rig\Component_Interface;
+use function WP_Rig\WP_Rig\wp_rig;
 use function add_action;
 use function add_theme_support;
 use function apply_filters;
@@ -37,6 +38,7 @@ class Component implements Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'after_setup_theme', [ $this, 'action_add_custom_header_support' ] );
+		add_filter( 'get_header_image_tag', [ $this, 'prepare_attributes_for_amp' ] );
 	}
 
 	/**
@@ -48,10 +50,10 @@ class Component implements Component_Interface {
 			apply_filters(
 				'wp_rig_custom_header_args',
 				[
-					'default-image'      => '',
+					'default-image'      => get_template_directory_uri() . '/assets/images/hero.jpg',
 					'default-text-color' => '333333',
-					'width'              => 1600,
-					'height'             => 250,
+					'width'              => 1800,
+					'height'             => 720,
 					'flex-height'        => true,
 					'wp-head-callback'   => [ $this, 'wp_head_callback' ],
 				]
@@ -65,15 +67,34 @@ class Component implements Component_Interface {
 	public function wp_head_callback() {
 		$header_text_color = get_header_textcolor();
 
-		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
-			return;
+		echo '<style type="text/css">';
+
+		echo '.header-image > amp-img, .header-image > img { display: block; max-height: calc(100vh - 3.5rem); overflow: hidden; }';
+		echo '.header-image > img { height: 720px; object-fit: cover; }';
+		echo '.header-image > amp-img img { object-fit: cover; }';
+
+		if ( get_theme_support( 'custom-header', 'default-text-color' ) !== $header_text_color ) {
+			if ( ! display_header_text() ) {
+				echo '.header-image .site-title, .header-image .site-description { position: absolute; clip: rect(1px, 1px, 1px, 1px); }';
+			} else {
+				echo '.header-image .site-title a, .header-image .site-description { color: #' . esc_attr( $header_text_color ) . '; }';
+			}
 		}
 
-		if ( ! display_header_text() ) {
-			echo '<style type="text/css">.site-title, .site-description { position: absolute; clip: rect(1px, 1px, 1px, 1px); }</style>';
-			return;
+		echo '</style>';
+	}
+
+	/**
+	 * Prepares the custom header HTML attributes for AMP, enforcing height and layout.
+	 *
+	 * @param string $html The HTML image tag markup.
+	 * @return string Filtered $html.
+	 */
+	public function prepare_attributes_for_amp( $html ) {
+		if ( wp_rig()->is_amp() ) {
+			$html = preg_replace( [ '/ width="(\d+)"/', '/ height="(\d+)"/' ], [ ' layout="fixed-height"', ' height="720"' ], $html );
 		}
 
-		echo '<style type="text/css">.site-title a, .site-description { color: #' . esc_attr( $header_text_color ) . '; }</style>';
+		return $html;
 	}
 }
