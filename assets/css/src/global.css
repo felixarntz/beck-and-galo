@@ -274,6 +274,10 @@ input[type="radio"]:checked::after {
 .site-header {
 	margin: 0;
 	padding: 3.5rem 0 0; /* Top padding because of .site-headerbar. */
+
+	&.entry-content {
+		padding: 0;
+	}
 }
 
 .header-image {
@@ -727,6 +731,10 @@ input[type="radio"]:checked::after {
 	color: var(--highlight-font-color);
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
+
+	&.entry-content {
+		padding: 0;
+	}
 }
 
 .site-info {

@@ -34,25 +34,35 @@ namespace WP_Rig\WP_Rig;
 <?php wp_body_open(); ?>
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'wp-rig' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<?php get_template_part( 'template-parts/header/navigation' ); ?>
-
-		<?php
-		if ( is_front_page() ) {
-			get_template_part( 'template-parts/header/custom_header' );
-		}
-		?>
-	</header><!-- #masthead -->
-
 	<?php
-	// For non-AMP, this sidebar is printed in the header/navigation.php template part.
-	// amp-sidebar usage is currently commented out because of an AMP plugin bug (see https://github.com/ampproject/amp-wp/pull/2926).
-	// phpcs:ignore Squiz.Commenting
-	/*if ( ( wp_rig()->is_primary_nav_menu_active() || wp_rig()->is_social_nav_menu_active() ) && wp_rig()->using_sidebar_navigation() && wp_rig()->is_amp() ) {
+	if ( wp_rig()->has_block_area( 'header' ) ) {
 		?>
-		<amp-sidebar id="site-sidebar" class="site-sidebar" layout="nodisplay" side="left" on="sidebarClose:AMP.setState( { siteNavigationMenu: { expanded: false } } )" data-close-button-aria-label="<?php esc_attr_e( 'Close Menu', 'wp-rig' ); ?>">
-			<?php get_template_part( 'template-parts/header/main_navigation' ); ?>
-		</amp-sidebar>
+		<header id="masthead" class="site-header entry-content">
+			<?php wp_rig()->render_block_area( 'header' ); ?>
+		</header><!-- #masthead -->
 		<?php
-	}*/
+	} else {
+		?>
+		<header id="masthead" class="site-header">
+			<?php get_template_part( 'template-parts/header/navigation' ); ?>
+
+			<?php
+			if ( is_front_page() ) {
+				get_template_part( 'template-parts/header/custom_header' );
+			}
+			?>
+		</header><!-- #masthead -->
+
+		<?php
+		// For non-AMP, this sidebar is printed in the header/navigation.php template part.
+		// amp-sidebar usage is currently commented out because of an AMP plugin bug (see https://github.com/ampproject/amp-wp/pull/2926).
+		// phpcs:ignore Squiz.Commenting
+		/*if ( ( wp_rig()->is_primary_nav_menu_active() || wp_rig()->is_social_nav_menu_active() ) && wp_rig()->using_sidebar_navigation() && wp_rig()->is_amp() ) {
+			?>
+			<amp-sidebar id="site-sidebar" class="site-sidebar" layout="nodisplay" side="left" on="sidebarClose:AMP.setState( { siteNavigationMenu: { expanded: false } } )" data-close-button-aria-label="<?php esc_attr_e( 'Close Menu', 'wp-rig' ); ?>">
+				<?php get_template_part( 'template-parts/header/main_navigation' ); ?>
+			</amp-sidebar>
+			<?php
+		}*/
+	}
 	?>
