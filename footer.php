@@ -16,7 +16,7 @@ namespace WP_Rig\WP_Rig;
 	<?php
 	if ( wp_rig()->has_block_area( 'footer' ) ) {
 		?>
-		<footer id="colophon" class="site-footer entry-content">
+		<footer id="colophon" class="site-footer site-footer-block-area entry-content">
 			<?php wp_rig()->render_block_area( 'footer' ); ?>
 		</footer><!-- #colophon -->
 		<?php

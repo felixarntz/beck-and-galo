@@ -52,7 +52,7 @@ if ( $main_navigation_active && wp_rig()->is_amp() ) {
 		<?php
 	}
 
-	if ( ! is_front_page() ) {
+	if ( wp_rig()->has_block_area( 'header' ) || ! is_front_page() ) {
 		get_template_part( 'template-parts/header/branding' );
 	}
 
