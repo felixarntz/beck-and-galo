@@ -52,17 +52,6 @@ namespace WP_Rig\WP_Rig;
 			}
 			?>
 		</header><!-- #masthead -->
-
 		<?php
-		// For non-AMP, this sidebar is printed in the header/navigation.php template part.
-		// amp-sidebar usage is currently commented out because of an AMP plugin bug (see https://github.com/ampproject/amp-wp/pull/2926).
-		// phpcs:ignore Squiz.Commenting
-		/*if ( ( wp_rig()->is_primary_nav_menu_active() || wp_rig()->is_social_nav_menu_active() ) && wp_rig()->using_sidebar_navigation() && wp_rig()->is_amp() ) {
-			?>
-			<amp-sidebar id="site-sidebar" class="site-sidebar" layout="nodisplay" side="left" on="sidebarClose:AMP.setState( { siteNavigationMenu: { expanded: false } } )" data-close-button-aria-label="<?php esc_attr_e( 'Close Menu', 'wp-rig' ); ?>">
-				<?php get_template_part( 'template-parts/header/main_navigation' ); ?>
-			</amp-sidebar>
-			<?php
-		}*/
 	}
 	?>
