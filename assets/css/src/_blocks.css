@@ -33,6 +33,17 @@
  */
 
 /*--------------------------------------------------------------
+# Paragraph Block - drop cap overrides
+--------------------------------------------------------------*/
+
+.has-drop-cap:not(:focus)::first-letter {
+	font-size: var(--font-size-larger);
+	font-weight: 700;
+	line-height: 1;
+	margin-right: 0.5rem;
+}
+
+/*--------------------------------------------------------------
 # Button Block - overrides core styles and provides variations
 --------------------------------------------------------------*/
 

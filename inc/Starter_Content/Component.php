@@ -36,8 +36,8 @@ class Component implements Component_Interface {
 	 * Adds theme support for starter content.
 	 */
 	public function action_add_starter_content() {
-		$our_story_content = '<!-- wp:paragraph -->
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc cursus suscipit dictum. Duis posuere magna eget congue sodales. Maecenas auctor, ipsum at convallis tincidunt, nibh sem feugiat purus, et dapibus justo metus sit amet ante. Sed eu turpis sodales, convallis orci vel, congue tortor. Ut in ornare eros. Mauris nec faucibus libero. Pellentesque in magna justo. Aenean varius eleifend ante vel euismod.</p>
+		$our_story_content = '<!-- wp:paragraph {"dropCap":true} -->
+<p class="has-drop-cap">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc cursus suscipit dictum. Duis posuere magna eget congue sodales. Maecenas auctor, ipsum at convallis tincidunt, nibh sem feugiat purus, et dapibus justo metus sit amet ante. Sed eu turpis sodales, convallis orci vel, congue tortor. Ut in ornare eros. Mauris nec faucibus libero. Pellentesque in magna justo. Aenean varius eleifend ante vel euismod.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
