@@ -66,6 +66,10 @@ option {
 	margin-bottom: 0;
 }
 
+.editor-post-title__block:not(.is-focus-mode).is-selected .editor-post-title__input {
+	color: var(--highlight-font-color);
+}
+
 .gallery .gallery-item,
 .wp-block-freeform .gallery .gallery-item {
 	width: auto;
