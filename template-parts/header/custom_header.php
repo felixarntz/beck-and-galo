@@ -8,7 +8,6 @@
 namespace WP_Rig\WP_Rig;
 
 if ( ! has_header_image() ) {
-	get_template_part( 'template-parts/header/branding' );
 	return;
 }
 
