@@ -521,6 +521,20 @@ input[type="radio"]:checked::after {
 		font-size: var(--font-size-regular);
 		font-weight: 400;
 	}
+
+	& .social-navigation {
+
+		& ul li a,
+		& ul li a:visited {
+			color: var(--headerbar-color-link);
+		}
+
+		& ul li a:hover,
+		& ul li a:focus,
+		& ul li a:active {
+			color: var(--headerbar-color-link-active);
+		}
+	}
 }
 
 .has-uppercase-main-navigation .site-headerbar .main-navigation,
@@ -557,6 +571,20 @@ input[type="radio"]:checked::after {
 
 		& > * {
 			padding-bottom: 1rem;
+		}
+	}
+
+	& .social-navigation {
+
+		& ul li a,
+		& ul li a:visited {
+			color: var(--headerbar-color-link);
+		}
+
+		& ul li a:hover,
+		& ul li a:focus,
+		& ul li a:active {
+			color: var(--headerbar-color-link-active);
 		}
 	}
 }
