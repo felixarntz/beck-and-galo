@@ -477,6 +477,13 @@ input[type="radio"]:checked::after {
 		top: 50%;
 		left: 1rem;
 		transform: translateY(-50%);
+		color: var(--headerbar-color-link);
+
+		& a:hover,
+		& a:focus,
+		& a:active {
+			color: var(--headerbar-color-link-active);
+		}
 	}
 
 	& .main-navigation {
