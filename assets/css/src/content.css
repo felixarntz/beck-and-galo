@@ -113,6 +113,27 @@
 	}
 }
 
+@media (--sidebar-query) {
+
+	.site.has-sidebar {
+
+		& .page-content > *,
+		& .entry-content > *,
+		& .entry-summary > *,
+		& .page-header,
+		& .entry-header,
+		& .entry-footer,
+		& .social-navigation,
+		& .footer-widget-areas,
+		& .site-info,
+		& .post-navigation,
+		& .page-navigation,
+		& .comments-area {
+			margin-right: 0;
+		}
+	}
+}
+
 .entry-content ul,
 .entry-content ol {
 	padding-right: 2.5em;
