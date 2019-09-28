@@ -74,6 +74,14 @@
 	width: 100vw;
 }
 
+@media (--sidebar-query) {
+
+	.has-sidebar .wp-block-group__inner-container {
+		margin: 0 0 0 calc((var(--content-width) - 75vw));
+		width: 75vw;
+	}
+}
+
 .page-content > *,
 .entry-content > *,
 .entry-summary > *,
@@ -127,6 +135,7 @@
 		& .page-content > *,
 		& .entry-content > *,
 		& .entry-summary > *,
+		& .wp-block-group__inner-container > *,
 		& .page-header,
 		& .entry-header,
 		& .entry-footer,
