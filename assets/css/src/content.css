@@ -251,18 +251,23 @@
 
 @media (--sidebar-query) {
 
-	.has-sidebar .page-content > .alignleft,
-	.has-sidebar .entry-content > .alignleft,
-	.has-sidebar .entry-summary > .alignleft,
-	.has-sidebar .wp-block-group__inner-container > .alignleft {
-		margin-left: calc((75vw - 2rem - var(--content-width)) / 2);
-	}
+	.has-sidebar {
 
-	.has-sidebar .page-content > .alignright,
-	.has-sidebar .entry-content > .alignright,
-	.has-sidebar .entry-summary > .alignright,
-	.has-sidebar .wp-block-group__inner-container > .alignright {
-		margin-right: calc((75vw - 2rem - var(--content-width)) / 2);
+		& .page-content > .alignleft,
+		& .entry-content > .alignleft,
+		& .entry-summary > .alignleft,
+		& .wp-block-group__inner-container > .alignleft {
+			margin-left: calc(75vw - 1.5rem - var(--content-width));
+			margin-right: 1.5rem;
+		}
+
+		& .page-content > .alignright,
+		& .entry-content > .alignright,
+		& .entry-summary > .alignright,
+		& .wp-block-group__inner-container > .alignright {
+			margin-right: 0;
+			margin-left: 1.5rem;
+		}
 	}
 }
 
