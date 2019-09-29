@@ -76,7 +76,7 @@ class Colors {
 	 * Adds support for Gutenberg's 'dark-editor-style' if necessary.
 	 */
 	public function action_support_block_editor_dark_scheme() {
-		$font_color = get_theme_mod( 'global_font_color', '#333333' );
+		$font_color = get_theme_mod( 'global_font_color', '#ffffff' );
 
 		// Only add support if the font color is closer to white than to black.
 		$channels  = $this->hex_to_rgb( $font_color );
