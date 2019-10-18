@@ -479,9 +479,9 @@ input[type="radio"]:checked::after {
 		transform: translateY(-50%);
 		color: var(--headerbar-color-link);
 
-		& a:hover,
-		& a:focus,
-		& a:active {
+		&:hover,
+		&:focus,
+		&:active {
 			color: var(--headerbar-color-link-active);
 		}
 	}
