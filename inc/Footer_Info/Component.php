@@ -60,7 +60,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$default_footer_info .= '</a>';
 		$default_footer_info .= '<span class="sep"> | </span>';
 		/* translators: Theme name. */
-		$default_footer_info .= sprintf( esc_html__( 'Theme: %s', 'wp-rig' ), '<a href="' . esc_url( 'https://github.com/wprig/wprig/' ) . '">WP Rig</a>' );
+		$default_footer_info .= sprintf( esc_html__( 'Theme: %s', 'wp-rig' ), '<a href="' . esc_url( 'https://github.com/felixarntz/beck-and-galo' ) . '">Beck & Galo</a>' );
 
 		$footer_info = $default_footer_info;
 
