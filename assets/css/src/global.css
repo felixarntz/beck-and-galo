@@ -132,10 +132,12 @@ input[type="submit"],
 	vertical-align: middle;
 
 	&.button-primary {
+		color: var(--color-theme-white);
 		background: var(--color-theme-primary);
 	}
 
 	&.button-secondary {
+		color: var(--color-theme-white);
 		background: var(--color-theme-secondary);
 	}
 }
@@ -160,6 +162,11 @@ input[type="submit"]:focus,
 .comment-reply-link:active,
 .comment-reply-link:focus {
 	color: var(--global-font-color);
+
+	&.button-primary,
+	&.button-secondary {
+		color: var(--color-theme-white);
+	}
 }
 
 input[type="text"],
